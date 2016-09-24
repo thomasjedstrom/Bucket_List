@@ -1,0 +1,14 @@
+<div id="navbar">
+	<span>Bucket List</span>
+	<a href="#/dashboard">Home</a> | <a href="" ng-click="logout()">Logout</a>
+</div>
+
+<h3 class="fw">{{ user.name }}'s Bucket List</h3>
+
+<div id="tasks">
+	<p>Done</p>
+	<p ng-repeat="item in bucketList" ng-if="item.checked==true"> <img src="assets/img/check.jpg" alt="check"> <b>{{ item.tagged.name }}</b> | {{ item.title }} - {{ item.description }}... - {{ item.created_at}}</p>
+
+	<p>Pending</p>
+	<p ng-repeat="item in bucketList" ng-if="item.checked==false"> <img src="assets/img/empty.jpg" alt="empty"> <b>{{ item.tagged.name }}</b> | {{ item.title }} - {{ item.description }}... - {{ item.created_at}}</p>
+</div>

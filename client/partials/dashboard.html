@@ -1,0 +1,38 @@
+<div id="navbar">
+	<span>Bucket List</span>
+	<a href="#/dashboard">Home</a> | <a href="" ng-click="logout()">Logout</a>
+</div>
+
+<h1 class="fw">Welcome, {{ current_user.name }}</h1>
+
+<form ng-submit="create(bl)">
+	<div ng-if="errors">
+		<p class="error" ng-repeat="error in errors">{{ error.message }}</p>
+	</div>
+
+	<input type="text" placeholder="Title" ng-model="bl.title">
+	<input type="text" placeholder="Description" ng-model="bl.description">
+	<select ng-model="bl.tagged">
+		<option value="{{ user.name }}" ng-repeat="user in users">{{ user.name }}</option>
+	</select>
+	<input type="submit" value="Add to List">
+</form>
+
+
+<div id="bucketList" class="fw">
+	<h4>Before I die I want to..</h4>
+	<p ng-repeat="item in bucketList">
+		<img src="assets/img/empty.jpg" alt="check" ng-if="item.checked==false" ng-click="check($index)">
+		<img src="assets/img/check.jpg" alt="check" ng-if="item.checked==true" ng-click="uncheck($index)">
+		<b>{{ item.user.name }}</b> | 
+		{{ item.title }} - {{ item.description }}... - {{ item.created_at}}
+	</p>
+</div>
+
+
+<div id="users">
+	<h4>List of other users (Click to view profile):</h4>
+	<p ng-repeat="user in users">
+		<a href="#/user/{{ user._id }}" ng-if="user._id != current_user._id">{{ user.name }}</a>
+	</p>
+</div>
