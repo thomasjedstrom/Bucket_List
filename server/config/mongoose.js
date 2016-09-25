@@ -4,8 +4,8 @@ var mongoose      = require('mongoose'),
     path          = require('path'),
     models_path   = path.join( __dirname, "../models"),
     reg           = new RegExp( ".js$", "i" ),
-    dbURI         = process.env.MONGO_URL;
-    // dbURI         = 'mongodb://localhost/mean_blackbelt_db';
+    // dbURI         = process.env.MONGO_URL;
+    dbURI         = 'mongodb://localhost/mean_blackbelt_db';
 
 mongoose.connect( dbURI );
 

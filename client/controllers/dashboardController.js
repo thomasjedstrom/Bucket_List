@@ -13,7 +13,7 @@ angular.module('app')
 
 	// INDEX
 	function index(){
-		// Set User
+		// Set Current User
 		let q = $q.defer()
 		userFactory.getCurrentUser()
 		.then(
@@ -32,13 +32,13 @@ angular.module('app')
 						x.resolve(res)
 					}
 				)
-				return x.promise;
+				return x.promise
 			}
 		).then(
 			userFactory.index()
 			.then(
 				res=>{
-					$scope.users = res.data.data;
+					$scope.users = res;
 					q.resolve(res);
 				}
 			)
@@ -94,4 +94,5 @@ angular.module('app')
 		userFactory.logout()
 		$location.url('/');	
 	}
+	
 }]);

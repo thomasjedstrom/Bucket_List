@@ -36,8 +36,8 @@ angular.module('app')
 			return httpP($http.get('/users/index'))
 			.then(
 				res=>{
-					users = res.data;
-					return res;
+					users = res.data.data;
+					return res.data.data;
 				},
 				err=>err
 			)
@@ -52,7 +52,7 @@ angular.module('app')
 			return httpP($http.post('/users/additem/'+id, object))
 			.then(
 				res=>{
-					users = res.data;
+					current_user = res.data.data;
 					return res;
 				},
 				err=>err
@@ -65,7 +65,7 @@ angular.module('app')
 			return httpP($http.post('/users/additem/'+id, object))
 			.then(
 				res=>{
-					users = res.data;
+					users = res.data.data;
 					return res;
 				},
 				err=>err
@@ -81,13 +81,8 @@ angular.module('app')
 			// if(users.length == 0){
 			return self.index()
 			.then(function(res){
-				return users.data.find(findUser)
+				return users.find(findUser)
 			})
-			// }else{
-			// 	return $q(function(resolve, reject){
-			// 		resolve(users.data.find(findUser));
-			// 	});
-			// }
 		};
 
 

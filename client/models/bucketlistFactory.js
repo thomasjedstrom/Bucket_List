@@ -56,16 +56,12 @@ angular.module('app')
 					}
 				}
 			}
-			if(bucketlists.length == 0){
-				return this.index()
-				.then(
-					res=>bucketlists.data.filter(findBucketList)
-				)
-			}else{
-				return $q((res, rej)=>{
-					res(bucketlists.data.filter(findBucketList))
-				})
-			}
+			return this.index()
+			.then(
+				res=>{
+					 return bucketlists.data.filter(findBucketList)
+				}
+			)
 		};
 
 /////////// Check

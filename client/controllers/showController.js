@@ -6,32 +6,30 @@ angular.module('app')
 	function index(){
 		// Set User
 		let q = $q.defer()
-		userFactory.getUser($routeParams)
+		userFactory.getCurrentUser()
 		.then(
 			res=>{
-				$scope.user = res;
-				return res;
-			}
-		// Set BucketList
-		).then(
-			res=>{
-				let x = $q.defer()
-				bucketlistFactory.getBucketList(res.bucketlist)
-				.then(
-					res=>{
-						console.log(res)
-						$scope.bucketList = res
-						x.resolve(res)
-					}
-				)
-				return x.promise;
+				$scope.current_user = res;
+				return res	
 			}
 		).then(
-			userFactory.index()
+			userFactory.getUser($routeParams)
 			.then(
 				res=>{
-					$scope.users = res.data.data;
-					q.resolve(res);
+					$scope.user = res;
+					return res;
+				}
+			)
+		// Set BucketList
+			.then(
+				res=>{
+					bucketlistFactory.getBucketList(res.bucketlist)
+					.then(
+						res=>{
+							$scope.bucketList = res
+							q.resolve(res);
+						}
+					)
 				}
 			)
 		)
@@ -43,5 +41,4 @@ angular.module('app')
 		userFactory.logout()
 		$location.url('/');
 	}
-
 }]);
