@@ -49,6 +49,24 @@ th {
     background-color: gray;
     color: white;
 }
+table td:nth-child(5){
+	text-align: center;
+}
+.c1{
+	width: 2em;
+}
+.c2{
+	width: 6em;
+}
+.c3{
+	width: 12em;
+}
+.c4{
+	width: 15em;
+}
+.c5{
+	width: 7em;
+}
 
 /* Inputs/Forms */
 .btn{
