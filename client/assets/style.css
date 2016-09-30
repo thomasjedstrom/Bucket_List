@@ -1,3 +1,7 @@
+html, body{
+	padding: 0px;
+	margin: 0px;
+}
 *{
 	font-family: sans-serif;
 }
@@ -6,6 +10,7 @@
 	flex-wrap: wrap;
 	max-width: 1000px;
 	margin: auto;
+	justify-content: space-around;
 }
 
 /* Full Width */
@@ -15,7 +20,18 @@
 
 /* Nav Bar r*/
 #navbar{
-	width: 100vw;
+	width: 100%;
+	background: lightgray;
+	margin: 0px;
+	margin-bottom: 30px;
+	padding: 0px 30px;
+}
+#navbar h1{
+	display: inline-block;
+}
+.right{
+	float: right;
+	margin-top: 30px;
 }
 
 /* Table */
@@ -80,11 +96,41 @@ input, textarea, select{
 }
 
 /*=========== DASHBOARD ===============*/
+#dashWrap{
+	flex: 0 0 750px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
 #dashboardFilter{
 	text-align: right;
 }
-#dashboardTable{
-	width: 100%;
+#createForm{
+	border: 3px solid black;
+	display: inline-block;
+	width: 300px;
+	padding: 20px;
+}
+#createForm label{
+	display: inline-block;
+	width: 150px;
+}
+#users{
+	border: 3px solid black;
+	display: inline-block;
+	margin-left: 50px;
+	width: 300px;
+	padding: 20px;
+}
+#users li{
+	line-height: 2em;
+}
+#bucketList{
+	border: 3px solid black;
+	display: inline-block;
+	width: 700px;
+	margin-top: 50px;
+	padding: 20px;
 }
 
 /*============ Survey SHOW =============*/

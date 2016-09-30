@@ -1,9 +1,9 @@
 <div id="navbar">
-	<span>Bucket List</span>
-	<a href="#/dashboard">Home</a> | <a href="" ng-click="logout()">Logout</a>
+	<h3 class="fw">{{ user.name }}'s Bucket List</h3>
+	<div class="right">
+		<a href="#/dashboard">Home</a> | <a href="" ng-click="logout()">Logout</a>
+	</div>
 </div>
-
-<h3 class="fw">{{ user.name }}'s Bucket List</h3>
 
 <div id="tasks">
 	<p>Done</p>
