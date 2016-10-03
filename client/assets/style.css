@@ -155,3 +155,15 @@ input, textarea, select{
 #surveyTable{
 	text-align: center;
 }
+.subtask{
+	width: 100%;
+	border: 3px solid black;
+	margin: 20px;
+	padding: 20px;
+}
+.subtask h3{
+	text-align: center;
+}
+.subtask table{
+	margin: auto;
+}
